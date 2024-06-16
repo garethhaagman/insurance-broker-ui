@@ -1,0 +1,104 @@
+import { useState } from "react";
+import PhoneInput from "react-phone-input-2"
+import 'react-phone-input-2/lib/style.css'
+
+function CallUserForm() {
+    const callUrl = 'http://localhost:3000/telephone';
+    const [fullName, setFullName] = useState("");
+    const [companyName, setCompanyName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        try {
+          const res = await fetch(callUrl, {
+            method: "POST",
+            // todo: gareth add cors proxy / preflight request on headers for middleware
+            mode: 'no-cors',
+            body: JSON.stringify({
+                fullName: fullName,
+                companyName: companyName,
+                phoneNumber: `+${phoneNumber}`
+            }),
+          });
+          const resJson = await res.json();
+          if (resJson.status === 201) {
+            setFullName("");
+            setCompanyName("");
+            setPhoneNumber("");
+            setMessage("Call placed successfully");
+          } else {
+            setMessage("Failed to place call");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+    return (
+      <>
+<div className='w-full max-w-xs mx-auto justify-center'>
+  <form onSubmit={handleSubmit} className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+    <div className='mb-4'>
+      <label className='block text-gray-700 text-sm font-bold mb-2'>
+        What's your name ?
+      </label>
+      <input 
+        required 
+        type="text"
+        id='fullName' 
+        name="fullName"
+        value={fullName}
+        onChange={(e) => setFullName(e.target.value)}
+        className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' 
+        placeholder='Marcus Aurelius'/>
+    </div>
+    <div className='mb-'>
+      <label className='block text-gray-700 text-sm font-bold mb-2' >
+        Where do you work ?
+      </label>
+      <input 
+        required 
+        type="text"
+        id='companyName' 
+        name="companyName"
+        value={companyName}
+        onChange={(e) => setCompanyName(e.target.value)}
+        className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline' 
+        placeholder='OpenAI' />
+    </div>    
+    <div className='mb-4'>
+      <label className='block text-gray-700 text-sm font-bold mb-2 ' >
+        What's your phone number ?
+      </label>
+      <PhoneInput 
+        value= {phoneNumber}
+        onChange={(e) => setPhoneNumber(e)}
+        inputProps={{
+                id: "phoneNumber",
+                name: "phoneNumber",
+                required: true,
+                className:"shadow appearance-none border rounded w-full indent-8 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            }}
+          placeholder='+44123-456-789' 
+          country={'gb'}
+        />
+    </div>
+    <div className='flex items-center justify-between'>
+      <button  
+      className='bg-blue-500 hover:bg-blue-700 text-white w-full font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' 
+      type='submit'>
+        Talk to me !
+      </button>
+    </div>
+  </form>
+  <div className="message">{message ? <p>{message}</p> : null}</div>
+  <p className='text-center text-gray-500 text-xs'>
+    &copy;2024 Testudo Global
+  </p>
+</div>
+      </>
+  )
+}
+export default CallUserForm
