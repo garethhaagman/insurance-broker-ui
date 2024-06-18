@@ -16,7 +16,7 @@ function Header() {
                 <span className="ml-3 text-xl text-gray-800">Testudo<span className="text-blue-500">.</span></span>
             </a>
             <nav className="hidden md:flex md:items-center md:space-x-8">
-            <a href="#features" className="font-bold text-gray-800 hover:text-blue-500">Policies</a>
+            <a href="#policies" className="font-bold text-gray-800 hover:text-blue-500">Policies</a>
             <a href="#pricing" className="font-bold text-gray-800 hover:text-blue-500">Pricing</a>
             </nav>
             <div id="nav-mobile-btn" className="cursor-pointer block md:hidden" onClick={toggleMobileMenu}>
@@ -26,7 +26,7 @@ function Header() {
         </div>
                     <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-white shadow-lg`}>
                 <nav className="flex flex-col items-center space-y-4 py-4">
-                    <a href="#features" className="font-bold text-gray-800 hover:text-blue-500">Policies</a>
+                    <a href="#policies" className="font-bold text-gray-800 hover:text-blue-500">Policies</a>
                     <a href="#pricing" className="font-bold text-gray-800 hover:text-blue-500">Pricing</a>
                 </nav>
             </div>
