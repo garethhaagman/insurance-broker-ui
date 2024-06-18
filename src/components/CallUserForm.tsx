@@ -3,7 +3,7 @@ import PhoneInput from "react-phone-input-2"
 import 'react-phone-input-2/lib/style.css'
 
 function CallUserForm() {
-    const callUrl = 'http://localhost:3000/telephone';
+    const callUrl = 'https://testudo-insurance-broker-6a3e106e42a6.herokuapp.com/telephone';
     const [fullName, setFullName] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -14,8 +14,7 @@ function CallUserForm() {
         try {
           const res = await fetch(callUrl, {
             method: "POST",
-            // todo: gareth add cors proxy / preflight request on headers for middleware
-            mode: 'no-cors',
+            mode: 'cors',
             body: JSON.stringify({
                 fullName: fullName,
                 companyName: companyName,
