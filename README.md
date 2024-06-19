@@ -4,7 +4,7 @@
 This is the frontend of the Testudo Insurance Broker. The frontend is built with React and styled using Tailwind CSS.
 
 ### Backend Repository
-- [NestJS Backend Repository](https://github.com/garethhaagman/insurance-broker)
+- [Insurance Broker Backend](https://github.com/garethhaagman/insurance-broker)
 
 ### Demo Link
 You can see a live demo of the application [here](https://testudo-insurance-broker-ui.netlify.app/).
@@ -20,7 +20,7 @@ You can see a live demo of the application [here](https://testudo-insurance-brok
    git clone https://github.com/garethhaagman/insurance-broker-ui.git
    cd insurance-broker-ui
    ```
-2. **Install Dependencies**
+2. **Install dependencies**
    ```sh
    npm install
    ```
