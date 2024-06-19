@@ -3,7 +3,8 @@ import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
 
 function CallUserForm() {
-    const callUrl = 'https://testudo-insurance-broker-6a3e106e42a6.herokuapp.com/telephone';
+    const baseUrl = process.env.BASE_URL;
+    const callUrl = `${baseUrl}/telephone`;
     const [fullName, setFullName] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");

@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Testudo Insurance Broker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is the frontend of the Testudo Insurance Broker. The frontend is built with React and styled using Tailwind CSS.
 
-Currently, two official plugins are available:
+### Backend Repository
+- [NestJS Backend Repository](https://github.com/garethhaagman/insurance-broker)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Demo Link
+You can see a live demo of the application [here](https://testudo-insurance-broker-ui.netlify.app/).
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
+- Node.js 
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Local Configuration Steps
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/garethhaagman/insurance-broker-ui.git
+   cd insurance-broker-ui
+   ```
+2. **Install Dependencies**
+   ```sh
+   npm install
+   ```
+3. **Setup local environment variables:**
+Create a .env file in the root directory with the following content
+   ```sh
+   REACT_APP_API_URL=http://localhost:3000
+   ```
+4. **Start the frontend**
+   ```sh
+   npm run start:dev
+   ```
