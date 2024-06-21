@@ -27,7 +27,7 @@ You can see a live demo of the application [here](https://testudo-insurance-brok
 3. **Setup local environment variables:**
 Create a .env file in the root directory with the following content
    ```sh
-   REACT_APP_API_URL=http://localhost:3000
+   BASE_URL=http://localhost:4400
    ```
 4. **Start the frontend**
    ```sh
