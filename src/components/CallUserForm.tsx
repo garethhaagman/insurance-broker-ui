@@ -40,40 +40,40 @@ function CallUserForm() {
     };
 
     return (
-        <><form onSubmit={handleSubmit} className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
-            <div className='mb-4'>
-                <label className='block text-gray-700 text-sm font-bold mb-2'>
-                    What's your name?
-                </label>
-                <input
-                    required
-                    type="text"
-                    id='fullName'
-                    name="fullName"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-                    placeholder='Marcus Aurelius' />
-            </div>
-            <div className='mb-4'>
-                <label className='block text-gray-700 text-sm font-bold mb-2'>
-                    Where do you work?
-                </label>
-                <input
-                    required
-                    type="text"
-                    id='companyName'
-                    name="companyName"
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline'
-                    placeholder='OpenAI' />
-            </div>
-            <div className='mb-4'>
-                <label className='block text-gray-700 text-sm font-bold mb-2'>
-                    What's your phone number?
-                </label>
-                <PhoneInput
+        <><form onSubmit={handleSubmit} className='bg-testudo-dark px-8 pt-6 pb-8 mb-4'>
+        <div className='mb-4'>
+          <label className='block text-white text-sm font-bold mb-2'>
+            What's your name?
+          </label>
+          <input
+            required
+            type="text"
+            id='fullName'
+            name="fullName"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            className='shadow appearance-none border rounded w-full py-2 px-3 placeholder-gray-500 leading-tight focus:outline-none focus:shadow-outline'
+            placeholder='Marcus Aurelius' />
+        </div>
+        <div className='mb-4'>
+          <label className='block text-white text-sm font-bold mb-2'>
+            Where do you work?
+          </label>
+          <input
+            required
+            type="text"
+            id='companyName'
+            name="companyName"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            className='shadow appearance-none border rounded w-full py-2 px-3 placeholder-gray-500 mb-3 leading-tight focus:outline-none focus:shadow-outline'
+            placeholder='OpenAI' />
+        </div>
+        <div className='mb-4'>
+          <label className='block text-white text-sm font-bold mb-2'>
+            What's your phone number?
+          </label>
+          <PhoneInput
                     value={phoneNumber}
                     onChange={(value) => setPhoneNumber(value)}
                     inputProps={{
@@ -84,15 +84,16 @@ function CallUserForm() {
                     }}
                     placeholder='+44123-456-789'
                     country={'gb'} />
-            </div>
-            <div className='flex items-center justify-between'>
-                <button
-                    className='bg-blue-500 hover:bg-blue-700 text-white w-full font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-                    type='submit'>
-                    Talk to me!
-                </button>
-            </div>
-        </form><div className="block text-center text-gray-700 text-sm font-bold">{message ? <p>{message}</p> : null}</div></>
+        </div>
+        <div className='flex items-center justify-between'>
+          <button
+            className='bg-testudo-purple text-white w-full font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+            type='submit'>
+            Talk to me!
+          </button>
+        </div>
+      </form>
+      <div className="block text-center text-gray-700 text-sm font-bold">{message ? <p>{message}</p> : null}</div></>
     );
 }
 
